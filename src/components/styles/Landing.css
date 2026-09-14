@@ -24,6 +24,7 @@
   filter: blur(60px);
   border-radius: 50%;
   animation: loadingCircle 5s linear infinite;
+  pointer-events: none;
 }
 .nav-fade {
   position: fixed;
@@ -63,6 +64,7 @@
   filter: blur(50px);
   border-radius: 50%;
   animation: loadingCircle2 5s linear infinite;
+  pointer-events: none;
 }
 @keyframes loadingCircle2 {
   100% {
@@ -108,7 +110,7 @@
   left: 50%;
   z-index: 0;
   bottom: 50px;
-  pointer-events: inherit;
+  pointer-events: none;
 }
 .character-model::after {
   content: "";
@@ -155,17 +157,18 @@
   z-index: 3;
   transform: translate(-50%, -50%);
   border-radius: 50%;
+  pointer-events: auto;
 }
 .landing-intro {
   position: absolute;
   z-index: 9;
-  top: 12%;
+  top: clamp(80px, 13vh, 120px);
   left: 0;
 }
 .landing-intro h2 {
   margin: 0;
   color: var(--accentColor);
-  font-size: 22px;
+  font-size: clamp(18px, 4vw, 22px);
   font-weight: 300;
   letter-spacing: 2px;
 }
@@ -173,8 +176,8 @@
 .landing-intro h1 {
   margin: 0;
   letter-spacing: 2px;
-  font-size: 28px;
-  line-height: 28px;
+  font-size: clamp(28px, 7vw, 36px);
+  line-height: 1.15;
   font-weight: 500;
   font-family: "Geist", sans-serif;
 }
@@ -187,12 +190,14 @@
   position: absolute;
   right: 50%;
   transform: translateX(50%);
-  bottom: 40px;
+  bottom: clamp(20px, 5vh, 40px);
   top: inherit;
   z-index: 9;
+  width: max-content;
+  max-width: 100%;
 }
 .landing-info h3 {
-  font-size: 22px;
+  font-size: clamp(18px, 4.5vw, 22px);
   letter-spacing: 2px;
   font-weight: 300;
   color: var(--accentColor);
@@ -200,12 +205,12 @@
 }
 .landing-info h2 {
   margin: 0;
-  margin-top: -20px;
-  margin-left: 20px;
+  margin-top: -10px;
+  margin-left: 10px;
   font-family: "Geist", sans-serif;
   font-weight: 600;
-  font-size: 32px;
-  line-height: 40px;
+  font-size: clamp(26px, 7vw, 32px);
+  line-height: 1.25;
   position: relative;
   display: flex;
   flex-wrap: nowrap;
@@ -218,13 +223,13 @@
 }
 h2.landing-info-h2 {
   color: #c481ff;
-  font-size: 42px;
-  width: 120%;
+  font-size: clamp(28px, 8vw, 38px);
+  width: 100%;
   margin: 0;
   font-family: "Geist", sans-serif;
   font-weight: 600;
   position: relative;
-  margin-left: -5px;
+  margin-left: 0;
 }
 .landing-h2-2 {
   position: absolute;

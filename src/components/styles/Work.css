@@ -6,11 +6,19 @@
 .work-section h2 > span {
   color: var(--accentColor);
 }
+.work-pin-wrapper {
+  position: relative;
+  width: 100%;
+}
 .work-section {
+  position: relative;
+  z-index: 5;
+  background-color: var(--backgroundColor);
   transition: 0s;
   height: 100vh;
   box-sizing: border-box;
   will-change: transform;
+  overflow: hidden;
 }
 .work-container {
   margin: auto;
@@ -85,6 +93,77 @@
 .work-info > p {
   width: 90%;
 }
+.work-action-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.work-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+}
+.work-btn-github {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+}
+.work-btn-github:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+.work-btn-live {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(120, 40, 200, 0.35) 100%);
+  border: 1px solid rgba(168, 85, 247, 0.6);
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.25);
+}
+.work-btn-live:hover {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.4) 0%, rgba(120, 40, 200, 0.5) 100%);
+  border-color: #c481ff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.45);
+}
+.live-pulse-dot {
+  width: 7px;
+  height: 7px;
+  background-color: #4ade80;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #4ade80;
+  animation: livePulse 1.8s infinite;
+}
+@keyframes livePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.65;
+  }
+}
+.work-arrow-icon {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+.work-btn:hover .work-arrow-icon {
+  transform: translate(2px, -2px);
+}
+.work-btn-icon {
+  font-size: 15px;
+}
 .work-image {
   display: flex;
   width: 100%;
@@ -154,8 +233,9 @@
     font-size: 15px;
   }
   .work-box {
-    width: 450px;
-    padding: 50px;
+    width: 480px;
+    padding: 40px;
+    gap: 30px;
   }
   .work-flex {
     margin-left: -50px;
@@ -163,16 +243,6 @@
   }
   .work-section h2 {
     font-size: 50px;
-  }
-}
-@media only screen and (max-width: 1400px) {
-  .work-box {
-    width: 350px;
-    padding: 30px;
-  }
-  .work-flex {
-    margin-left: -30px;
-    padding-right: 45px;
   }
 }
 
@@ -188,23 +258,86 @@
     gap: 20px;
   }
 }
-/* @media only screen and (max-width: 900px) {
-  .work-image img {
-    max-height: 200px;
-  }
-  .work-section h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-  }
-  .work-box {
-    gap: 20px;
-  }
-} */
+
 @media only screen and (max-width: 1025px) {
   .work-container {
     align-content: normal;
   }
   .work-flex {
     height: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .work-section {
+    height: 100vh;
+    height: 100dvh;
+  }
+  .work-section h2 {
+    font-size: clamp(30px, 7vw, 42px);
+    margin-top: 50px;
+    margin-bottom: 15px;
+  }
+  .work-flex {
+    margin-left: 0;
+    padding-right: 30px;
+  }
+  .work-box {
+    width: calc(100vw - 32px);
+    max-width: 340px;
+    padding: 20px 14px;
+    gap: 14px;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .work-title {
+    margin-bottom: 10px;
+  }
+  .work-title h3 {
+    font-size: 26px;
+    line-height: 26px;
+  }
+  .work-title h4 {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .work-title p {
+    font-size: 12px;
+  }
+  .work-info h4 {
+    font-size: 13px;
+  }
+  .work-info p {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .work-info > p {
+    width: 100%;
+  }
+  .work-action-links {
+    margin-top: 12px;
+    gap: 8px;
+  }
+  .work-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 5px;
+  }
+  .work-image img {
+    max-height: 160px;
+    border-radius: 8px;
+  }
+  .work-link {
+    opacity: 1 !important;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    bottom: 8px;
+    right: 8px;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .work-link {
+    opacity: 1 !important;
   }
 }

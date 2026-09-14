@@ -6,9 +6,11 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
-          dolores numquam iusto Ratione earum ducimus autem id iure pariatur
-          dolorum quae maiores.
+          I am a 2026 Computer Engineering graduate from L.D. College of
+          Engineering, Ahmedabad, and a Full-Stack Developer specializing in
+          building production-grade MERN & Next.js web applications, scalable
+          backend systems, and integrating Generative AI powered by Google
+          Gemini.
         </p>
       </div>
     </div>

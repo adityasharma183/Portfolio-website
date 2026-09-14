@@ -23,11 +23,18 @@
 .cursor-disable {
   --size: 0px;
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 900px) and (hover: hover) and (pointer: fine) {
   .cursor-main {
     --size: 50px;
+    display: block;
   }
   .cursor-disable {
+    --size: 0px;
+  }
+}
+@media (hover: none), (pointer: coarse), (max-width: 899px) {
+  .cursor-main {
+    display: none !important;
     --size: 0px;
   }
 }
